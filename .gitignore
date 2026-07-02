@@ -1,0 +1,7 @@
+# Ignore dependencies, environment files, and editor artifacts for a PHP + vanilla JS project.
+node_modules/
+.env
+vendor/
+.DS_Store
+.vscode/
+.idea/

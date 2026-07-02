@@ -1,0 +1,1 @@
+-- Purpose: Database schema and table creation script.
