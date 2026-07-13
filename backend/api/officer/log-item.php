@@ -39,6 +39,7 @@ if (!$student || mysqli_num_rows($student) === 0) {
 mysqli_close($school_conn);
 
 // Step 2 — check this ID isn't already logged
+// If two officers tyr to log the same ID
 $lost_conn = connect_lost_ids_db();
 
 $name_escaped    = mysqli_real_escape_string($lost_conn, $name);
