@@ -7,7 +7,7 @@ $db_password = "";
 function connect_school_db() {
     global $db_server, $db_username, $db_password;
     
-    $conn = mysqli_connect($db_server, $db_username, $db_password, "school_db");
+    $conn = mysqli_connect($db_server, $db_username, $db_password, "school-db");
     
     if (!$conn) {
         die(json_encode(['error' => 'Could not connect to school database']));
@@ -19,7 +19,7 @@ function connect_school_db() {
 function connect_lost_ids_db() {
     global $db_server, $db_username, $db_password;
     
-    $conn = mysqli_connect($db_server, $db_username, $db_password, "lost_ids_db");
+    $conn = mysqli_connect($db_server, $db_username, $db_password, "lost-ids-db");
     
     if (!$conn) {
         die(json_encode(['error' => 'Could not connect to lost IDs database']));
