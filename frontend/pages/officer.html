@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IDentify - Officer Portal</title>
+  <meta name="description" content="Dedicated dashboard for campus officers to log recovered IDs and manage active inventory." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+</head>
+<body class="officer-page">
+  <div class="officer-shell">
+    <aside class="officer-sidebar">
+      <a class="brand-block" href="index.html">
+        <span class="brand-mark">ID</span>
+        <span>IDentify</span>
+      </a>
+
+      <nav class="officer-nav" aria-label="Officer navigation">
+        <a class="active" href="#"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+        <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Public Portal</a>
+      </nav>
+    </aside>
+
+    <main class="officer-main">
+      <header class="officer-topbar">
+        <div>
+          <p class="eyebrow">Officer Portal</p>
+          <h1>Campus ID intake dashboard</h1>
+          <p>Log recovered IDs, track active inventory, and mark items handed over once collected.</p>
+        </div>
+        <div class="nav-actions">
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+        </div>
+      </header>
+
+      <section class="officer-grid">
+        <article class="officer-card">
+          <div class="card-heading">
+            <div>
+              <h2>Log a newly handed-in ID</h2>
+              <p>Record the item the moment it reaches your desk.</p>
+            </div>
+            <span class="pill"><i class="fa-solid fa-lock"></i> Secure intake</span>
+          </div>
+
+          <form id="inventoryForm" class="officer-form">
+            <div class="field-grid">
+              <div class="field-group">
+                <label for="regNumber">Registration Number</label>
+                <input id="regNumber" name="regNumber" type="text" required />
+              </div>
+              <div class="field-group">
+                <label for="fullName">Full Name</label>
+                <input id="fullName" name="fullName" type="text" required />
+              </div>
+            </div>
+
+            <div class="field-grid">
+              <div class="field-group">
+                <label for="college">College / Faculty</label>
+                <select id="college" name="college">
+                  <option value="Faculty of Computing">Faculty of Computing</option>
+                  <option value="Faculty of Engineering">Faculty of Engineering</option>
+                  <option value="Faculty of Education">Faculty of Education</option>
+                  <option value="Faculty of Business">Faculty of Business</option>
+                </select>
+              </div>
+              <div class="field-group">
+                <label for="course">Course / Program</label>
+                <input id="course" name="course" type="text" placeholder="e.g. BSc Computer Science" />
+              </div>
+            </div>
+
+            <div class="field-grid">
+              <div class="field-group">
+                <label for="pickupLocation">Pickup Location</label>
+                <select id="pickupLocation" name="pickupLocation">
+                  <option value="Main Gate Security Office">Main Gate Security Office</option>
+                  <option value="Admin Block Front Desk">Admin Block Front Desk</option>
+                  <option value="Library Desk">Library Desk</option>
+                </select>
+              </div>
+              <div class="field-group">
+                <label for="notes">Notes</label>
+                <textarea id="notes" name="notes" placeholder="Optional handling notes"></textarea>
+              </div>
+            </div>
+
+            <label class="dropzone" for="idImage">
+              <input id="idImage" name="idImage" type="file" accept="image/*" />
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+              <p>Optional ID image</p>
+              <span>Drop or click to attach an image</span>
+            </label>
+
+            <button class="btn-primary" type="submit"><i class="fa-solid fa-plus"></i> Log ID</button>
+          </form>
+        </article>
+
+        <article class="officer-card stat-card">
+          <span class="pill"><i class="fa-solid fa-box"></i> Active inventory</span>
+          <div class="stat-value" id="inventoryCount">0</div>
+          <p>IDs currently in possession and awaiting collection.</p>
+        </article>
+      </section>
+
+      <section class="officer-card">
+        <div class="card-heading">
+          <div>
+            <h2>Current IDs in possession</h2>
+            <p>Review active records and clear them when a student collects the item in person.</p>
+          </div>
+        </div>
+
+        <div class="table-shell">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Reg No</th>
+                <th>Name</th>
+                <th>College / Course</th>
+                <th>Pickup Location</th>
+                <th>Date Logged</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="inventoryTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast">
+    <span id="toastIcon"></span>
+    <span id="toastMsg"></span>
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/officer.js"></script>
+</body>
+</html>

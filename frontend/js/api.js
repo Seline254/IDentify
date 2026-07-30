@@ -33,6 +33,17 @@ const API = {
     return requestFormData('POST', '/documents/claim', formData, true);
   },
 
+  // ── OFFICER PORTAL ──
+  async officerGetInventory() {
+    return request('GET', '/officer/all-ids');
+  },
+  async officerLogId(data) {
+    return request('POST', '/officer/upload-id', data);
+  },
+  async officerMarkClaimed(id) {
+    return request('POST', '/officer/claim', { id });
+  },
+
   // ── FACE MATCH ──
   async verifyFace(docId, selfieBlob) {
     const formData = new FormData();
