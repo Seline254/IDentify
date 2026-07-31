@@ -496,6 +496,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- NAVBAR -->
@@ -504,27 +505,12 @@
       <div class="nav-logo-icon">ID</div>
       IDentify
     </div>
-    <ul class="nav-links">
-      <li><a href="#how-it-works">How it works</a></li>
-      <li><a href="upload.html">Report Found</a></li>
-    </ul>
     <div class="nav-actions">
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
         <i class="fa-solid fa-moon"></i>
       </button>
-      <a href="upload.html" class="btn-nav-cta" id="navCta" style="display:none">
-        <i class="fa-solid fa-upload"></i> Found a document?
-      </a>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
   </nav>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#how-it-works" onclick="document.getElementById('mobileMenu').classList.remove('open')">How it works</a>
-    <a href="upload.html">Found something?</a>
-  </div>
 
   <!-- HERO -->
   <section class="hero" id="home">
@@ -550,9 +536,6 @@
         <div class="search-divider"></div>
         <button class="search-btn" onclick="handleSearch()">Find My ID</button>
       </div>
-      <p class="search-hint">
-        Found someone's document? <a href="upload.html">Upload it here <i class="fa-solid fa-arrow-right" style="font-size:11px"></i></a>
-      </p>
     </div>
 
     <div class="scroll-hint">
@@ -582,92 +565,17 @@
     </div>
   </section>
 
-  <!-- PROCESS -->
-  <section class="process-section how-it-works" id="how-it-works">
-    <div class="container">
-      <div class="process-header">
-        <p class="section-eyebrow">How it works</p>
-        <h2 class="section-title">From found to collected in a few calm steps.</h2>
-        <p class="section-subtitle">The flow stays simple: one upload, one check, one pickup. Every step is designed to protect privacy while moving fast.</p>
-      </div>
-
-      <div class="process-shell">
-        <div class="process-rail" role="tablist" aria-label="Recovery steps">
-          <button class="process-step-card step-card active" type="button" data-step="0">
-            <span class="process-step-number">01</span>
-            <span class="process-step-meta">
-              <strong>Upload</strong>
-              <span>For the finder</span>
-            </span>
-          </button>
-          <button class="process-step-card step-card" type="button" data-step="1">
-            <span class="process-step-number">02</span>
-            <span class="process-step-meta">
-              <strong>Verify</strong>
-              <span>Secure check</span>
-            </span>
-          </button>
-          <button class="process-step-card step-card" type="button" data-step="2">
-            <span class="process-step-number">03</span>
-            <span class="process-step-meta">
-              <strong>Collect</strong>
-              <span>Pickup ready</span>
-            </span>
-          </button>
-        </div>
-
-        <div class="process-detail-card">
-          <div class="process-detail-top">
-            <span class="process-detail-badge" id="detailBadge">Step 01 • For the finder</span>
-            <span class="process-detail-tag" id="detailTag">Fast upload</span>
-          </div>
-          <h3 class="process-detail-title" id="detailTitle">Upload the found document</h3>
-          <p class="process-detail-copy" id="detailCopy">Anyone who finds a document can open IDentify, capture it in a photo, and send it on in seconds. No account, no queue, no unnecessary friction.</p>
-          <div class="process-detail-metrics" id="detailMetrics"></div>
-          <div class="process-visual-panel step-preview" id="detailVisual"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- FEATURES -->
-  <div class="features-strip">
+  <!-- <div class="features-strip">
     <div class="container">
       <div class="features-grid">
-        <div class="feature-item"><i class="fa-solid fa-face-viewfinder"></i><div class="feature-label">Face Verification</div><div class="feature-desc">Identity confirmed before details are revealed</div></div>
         <div class="feature-item"><i class="fa-solid fa-bolt"></i><div class="feature-label">Instant Search</div><div class="feature-desc">Live database results in milliseconds</div></div>
         <div class="feature-item"><i class="fa-solid fa-mobile-screen"></i><div class="feature-label">Mobile First</div><div class="feature-desc">Built for your phone, any connection</div></div>
-        <div class="feature-item"><i class="fa-solid fa-folder-open"></i><div class="feature-label">All Doc Types</div><div class="feature-desc">IDs, passports, library cards and more</div></div>
-        <div class="feature-item"><i class="fa-solid fa-clock"></i><div class="feature-label">24/7 Available</div><div class="feature-desc">Search and upload any time, any day</div></div>
+         <div class="feature-item"><i class="fa-solid fa-folder-open"></i><div class="feature-label">All Doc Types</div><div class="feature-desc">IDs, passports, library cards and more</div></div> -->
+        <!-- <div class="feature-item"><i class="fa-solid fa-clock"></i><div class="feature-label">24/7 Available</div><div class="feature-desc">Search and upload any time, any day</div></div>
       </div>
     </div>
-  </div>
-
-  <!-- UPLOAD CTA -->
-  <section class="upload-section" id="upload">
-    <div class="container upload-shell">
-      <div class="upload-copy">
-        <p class="section-eyebrow">For document finders</p>
-        <h2 class="section-title">Found someone's ID? Be the reason they smile today.</h2>
-        <p class="section-copy">Under two minutes. No account needed. Photograph the document, drop the location, and the owner will find it through the system.</p>
-        <div class="upload-cta-row">
-          <a href="upload.html" class="btn-primary"><i class="fa-solid fa-upload"></i> Upload a found document</a>
-          <a href="#how-it-works" class="btn-ghost"><i class="fa-solid fa-circle-info"></i> See how it works</a>
-        </div>
-      </div>
-      <div class="upload-dropzone" onclick="window.location.href='upload.html'">
-        <i class="fa-solid fa-id-card"></i>
-        <h3>Drop or click to upload</h3>
-        <p>Take a clear photo of the document. The owner is waiting for it.</p>
-        <div class="file-types">
-          <span class="file-type-tag">JPG</span>
-          <span class="file-type-tag">PNG</span>
-          <span class="file-type-tag">HEIC</span>
-          <span class="file-type-tag">PDF</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div> --> 
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -682,8 +590,8 @@
         <div class="footer-col">
           <h4>Platform</h4>
           <ul>
-            <li><a href="upload.html">Report a found document</a></li>
-            <li><a href="#how-it-works">How it works</a></li>
+            <li><a href="officer.html">Officer intake desk</a></li>
+            <li><a href="#home">Back to top</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -747,15 +655,9 @@
 
     /* ── NAVBAR ── */
     const navbar = document.getElementById('navbar');
-    const navCta = document.getElementById('navCta');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 60);
-      navCta.style.display = window.scrollY > 60 ? 'inline-flex' : 'none';
     });
-
-    /* ── MOBILE MENU ── */
-    document.getElementById('hamburger').addEventListener('click', () =>
-      document.getElementById('mobileMenu').classList.toggle('open'));
 
     /* ── SEARCH ── */
     document.getElementById('mainSearchInput').addEventListener('keydown', e => {
@@ -801,14 +703,14 @@
           <div class="divider"></div>
           <div class="verify-prompt">
             <p>Details are hidden until identity is confirmed. Face verification required.</p>
-            <a href="claim.html?reg=${encodeURIComponent(reg)}"
+            <a href="officer.html?reg=${encodeURIComponent(reg)}"
                class="btn-primary" style="width:100%;justify-content:center;border-radius:var(--r-sm);padding:12px;margin-top:4px">
               <i class="fa-solid fa-camera"></i> Verify identity to continue
             </a>
           </div>
         </div>
         <p style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:12px">
-          Not yours? <a href="upload.html" style="color:var(--green-400)">Report a found document</a>
+          Not yours? <a href="officer.html" style="color:var(--green-400)">Report a found document</a>
         </p>`;
     }
     function closeModal() { document.getElementById('searchModal').classList.remove('active'); }
@@ -837,98 +739,6 @@
         animateCount(document.getElementById('s3'), 94, 1300);
       }
     }, 700);
-
-    /* ── PROCESS STEPS ── */
-    const processSteps = [
-      {
-        badge: 'Step 01 • For the finder',
-        tag: 'Fast upload',
-        title: 'Upload the found document',
-        copy: 'Anyone who finds a document can open IDentify, capture it in a photo, and send it on in seconds. No account, no queue, no unnecessary friction.',
-        metrics: [
-          { label: 'Time', value: 'Under 60s' },
-          { label: 'Needed', value: 'No login' },
-          { label: 'Best for', value: 'Any document' }
-        ],
-        visual: `<div class="process-visual-upload">
-          <div class="upload-card-surface">
-            <i class="fa-solid fa-id-card"></i>
-            <span>Drop the photo here or tap to upload</span>
-            <div class="upload-progress"><div></div></div>
-          </div>
-          <div class="chip-row">
-            <span class="process-chip">Student ID</span>
-            <span class="process-chip">National ID</span>
-            <span class="process-chip">Library Card</span>
-          </div>
-        </div>`
-      },
-      {
-        badge: 'Step 02 • Secure verification',
-        tag: 'Last-name check',
-        title: 'Verify the match with the owner’s last name',
-        copy: 'A quick verification check confirms the document belongs to the right person while keeping the process simple and private. The last name helps confirm the claim without exposing extra details.',
-        metrics: [
-          { label: 'Method', value: 'Last name' },
-          { label: 'Privacy', value: 'Protected' },
-          { label: 'Outcome', value: 'Claim unlocked' }
-        ],
-        visual: `<div class="process-visual-verify">
-          <div class="frame">
-            <div class="face"></div>
-            <div class="check"><i class="fa-solid fa-check"></i></div>
-          </div>
-        </div>`
-      },
-      {
-        badge: 'Step 03 • Pickup ready',
-        tag: 'Clear handoff',
-        title: 'Collect the document from the pickup point',
-        copy: 'Once verified, the owner receives a reference code and the pickup location. They show the code, collect the item, and leave with confidence.',
-        metrics: [
-          { label: 'Reference', value: 'Instant code' },
-          { label: 'Pickup', value: 'On site' },
-          { label: 'Status', value: 'Ready now' }
-        ],
-        visual: `<div class="process-visual-collect">
-          <div class="collect-card">
-            <div class="label">Claim reference</div>
-            <div class="code">IDT-2026-0042</div>
-            <div class="location"><i class="fa-solid fa-location-dot"></i> Main Gate Security Office</div>
-          </div>
-        </div>`
-      }
-    ];
-
-    const stepCards = document.querySelectorAll('.process-step-card');
-    const detailBadge = document.getElementById('detailBadge');
-    const detailTag = document.getElementById('detailTag');
-    const detailTitle = document.getElementById('detailTitle');
-    const detailCopy = document.getElementById('detailCopy');
-    const detailMetrics = document.getElementById('detailMetrics');
-    const detailVisual = document.getElementById('detailVisual');
-
-    function activateProcessStep(index) {
-      stepCards.forEach((card, i) => card.classList.toggle('active', i === index));
-      const step = processSteps[index];
-      detailBadge.textContent = step.badge;
-      detailTag.textContent = step.tag;
-      detailTitle.textContent = step.title;
-      detailCopy.textContent = step.copy;
-      detailMetrics.innerHTML = step.metrics.map(metric => `
-        <div class="process-metric">
-          <span>${metric.label}</span>
-          <strong>${metric.value}</strong>
-        </div>
-      `).join('');
-      detailVisual.innerHTML = step.visual;
-    }
-
-    stepCards.forEach((card, index) => {
-      card.addEventListener('click', () => activateProcessStep(index));
-    });
-
-    activateProcessStep(0);
 
     /* ── TOAST ── */
     function showToast(icon, msg) {
