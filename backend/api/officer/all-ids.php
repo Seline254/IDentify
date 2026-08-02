@@ -1,13 +1,19 @@
 <?php
+// ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+
+// session_start();
+// rest of the file...
+
 session_start();
-require_once '../../middleware/role-check.php';
+// require_once '../../middleware/role-check.php';
 require_once '../../config/db.php';
 
-require_role('officer');
+// require_role('officer');
 
-$conn = connect_lost_ids_db();
+$conn = connect_db();
 
-$result = mysqli_query($conn, "SELECT * FROM lost_ids WHERE status = 'in_custody'");
+$result = mysqli_query($conn, "SELECT * FROM INVENTORY_RECORDS WHERE status = 'in_custody'");
 
 if (!$result) {
     echo json_encode(['error' => 'Could not fetch IDs']);

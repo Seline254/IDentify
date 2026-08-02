@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once '../../middleware/role-check.php';
+// require_once '../../middleware/role-check.php';
 require_once '../../config/db.php';
 
-require_role('officer');
+// require_role('officer');
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(['error' => 'Invalid request method']);
@@ -17,21 +17,21 @@ if (empty($item_id)) {
     exit;
 }
 
-$conn = connect_lost_ids_db();
+$conn = connect_db();
 
 $item_id = mysqli_real_escape_string($conn, $item_id);
 
-// First check the item exists and is still in custody
-$result = mysqli_query($conn, "SELECT * FROM lost_ids WHERE id = '$item_id' AND status = 'in_custody'");
+$result = mysqli_query($conn,
+    "SELECT * FROM INVENTORY_RECORDS WHERE id = '$item_id' AND status = 'in_custody'"
+);
 
 if (!$result || mysqli_num_rows($result) === 0) {
     echo json_encode(['error' => 'Item not found or already claimed']);
     exit;
 }
 
-// Mark as claimed
-$update = mysqli_query($conn, 
-    "UPDATE lost_ids 
+$update = mysqli_query($conn,
+    "UPDATE INVENTORY_RECORDS 
      SET status = 'claimed', claimed_at = NOW() 
      WHERE id = '$item_id'"
 );
