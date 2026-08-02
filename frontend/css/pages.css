@@ -995,3 +995,49 @@
     padding: 10px 6px;
   }
 }
+/* ── 404 PAGE ── */
+.not-found-shell {
+  min-height: calc(100vh - 160px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.not-found-card {
+  max-width: 560px;
+  text-align: center;
+}
+.not-found-card h1 {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 4vw, 34px);
+  margin: 16px 0 12px;
+}
+.not-found-card p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.not-found-card .public-link-row {
+  justify-content: center;
+  margin-top: 0;
+}
+
+/* ── OFFICER LOGIN ── */
+.officer-login-card { max-width: 440px; text-align: left; }
+.officer-login-card h1 { text-align: left; }
+.officer-login-card p { text-align: left; }
+.officer-login-submit { width: 100%; margin-top: 4px; }
+.officer-login-switch {
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--text-muted);
+  margin-top: 20px;
+}
+.officer-login-switch a { color: var(--green-400); font-weight: 600; }
+/* ── AUTOFILL FIX (dark theme) ── */
+.input-field:-webkit-autofill,
+.input-field:-webkit-autofill:hover,
+.input-field:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text-primary);
+  -webkit-box-shadow: 0 0 0px 1000px var(--bg-secondary) inset;
+  transition: background-color 9999s ease-in-out 0s;
+}

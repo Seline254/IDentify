@@ -34,6 +34,9 @@ const API = {
   },
 
   // ── OFFICER PORTAL ──
+  async officerLogin(data) {
+    return request('POST', '/officer/login', data);
+  },
   async officerGetInventory() {
     return request('GET', '/officer/all-ids');
   },

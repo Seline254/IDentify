@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IDentify - Officer Sign In</title>
+  <meta name="description" content="Officer sign in for the IDentify campus ID intake dashboard." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+</head>
+<body class="public-page">
+  <nav class="public-nav">
+    <a class="brand-block" href="index.html">
+      <span class="brand-mark">ID</span>
+      <span>IDentify</span>
+    </a>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <main class="public-shell not-found-shell">
+    <div class="public-card not-found-card officer-login-card">
+      <span class="pill"><i class="fa-solid fa-shield-halved"></i> Officer Portal</span>
+
+      <h1>Officer sign in</h1>
+      <p>Verify with your Work ID and registered phone number to access the intake dashboard.</p>
+
+      <form id="officerLoginForm" novalidate>
+        <div class="input-group">
+          <label class="input-label" for="workId">Work ID</label>
+          <input class="input-field" id="workId" name="workId" type="text" placeholder="e.g. JKUAT-OFF-0231" autocomplete="username" required />
+        </div>
+
+        <div class="input-group">
+          <label class="input-label" for="phoneNumber">Phone Number</label>
+          <input class="input-field" id="phoneNumber" name="phoneNumber" type="tel" placeholder="e.g. 0712345678" autocomplete="tel" required />
+        </div>
+
+        <div class="alert alert-info">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>No passwords here — access is verified using your Work ID and the phone number on file with campus security.</span>
+        </div>
+
+        <button class="btn-primary officer-login-submit" type="submit" id="officerLoginSubmit">
+          <i class="fa-solid fa-right-to-bracket"></i> Sign In
+        </button>
+      </form>
+
+      <p class="officer-login-switch">Not an officer? <a href="index.html">Go to student portal</a></p>
+    </div>
+  </main>
+
+  <div class="toast" id="toast">
+    <span id="toastIcon"></span>
+    <span id="toastMsg"></span>
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/officer-login.js"></script>
+</body>
+</html>

@@ -11,7 +11,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="../css/main.css" />
   <link rel="stylesheet" href="../css/components.css" />
-  <link rel="stylesheet" href="../css/pages.css" />
+ <link rel="stylesheet" href="../css/pages.css" />
+  <script>
+    if (!localStorage.getItem('identify-token')) {
+      window.location.replace('officer-login.html');
+    }
+  </script>
 </head>
 <body class="officer-page">
   <div class="officer-shell">
@@ -24,6 +29,7 @@
       <nav class="officer-nav" aria-label="Officer navigation">
         <a class="active" href="#"><i class="fa-solid fa-gauge"></i> Dashboard</a>
         <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Public Portal</a>
+        <a href="#" id="logoutLink"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a>
       </nav>
     </aside>
 
@@ -144,7 +150,14 @@
     <span id="toastMsg"></span>
   </div>
 
-  <script src="../js/api.js"></script>
+ <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
   <script src="../js/officer.js"></script>
+  <script>
+    document.getElementById('logoutLink').addEventListener('click', (e) => {
+      e.preventDefault();
+      Auth.logout();
+    });
+  </script>
 </body>
 </html>

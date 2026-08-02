@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IDentify - Page Not Found</title>
+  <meta name="description" content="This page or link no longer exists." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+</head>
+<body class="public-page">
+  <nav class="public-nav">
+    <a class="brand-block" href="index.html">
+      <span class="brand-mark">ID</span>
+      <span>IDentify</span>
+    </a>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <main class="public-shell not-found-shell">
+    <div class="public-card not-found-card">
+      <span class="pill pill-gold"><i class="fa-solid fa-link-slash"></i> Error 404</span>
+
+      <h1>This link has expired.</h1>
+      <p>
+        Whatever brought you here — a bookmark, a shared link, a typo — it doesn't
+        lead anywhere anymore. If you followed a sign-in link, remember those only
+        last 15 minutes and work once.
+      </p>
+
+      <div class="public-link-row">
+        <a href="index.html" class="btn-primary"><i class="fa-solid fa-magnifying-glass"></i> Search for your ID</a>
+        <a href="officer-login.html" class="btn-ghost"><i class="fa-solid fa-shield-halved"></i> Officer sign in</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="public-footer">
+    <p>IDentify · Lost document recovery platform for JKUAT students.</p>
+  </footer>
+
+  <script>
+    const html = document.documentElement;
+    const savedTheme = localStorage.getItem('identify-theme') || 'dark';
+    html.setAttribute('data-theme', savedTheme);
+    const themeButton = document.getElementById('themeToggle');
+    themeButton.innerHTML = savedTheme === 'dark' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+    themeButton.addEventListener('click', () => {
+      const nextTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', nextTheme);
+      localStorage.setItem('identify-theme', nextTheme);
+      themeButton.innerHTML = nextTheme === 'dark' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+    });
+  </script>
+</body>
+</html>
