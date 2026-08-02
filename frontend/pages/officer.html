@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IDentify - Officer Portal</title>
+  <meta name="description" content="Dedicated dashboard for campus officers to log recovered IDs and manage active inventory." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+</head>
+<body class="officer-page">
+  <div class="officer-shell">
+    <aside class="officer-sidebar">
+      <a class="brand-block" href="index.html">
+        <span class="brand-mark">ID</span>
+        <span>IDentify</span>
+      </a>
+
+      <div class="sidebar-section">
+        <span class="sidebar-label">MENU</span>
+        <nav class="officer-nav" aria-label="Officer navigation">
+          <a class="active" href="officer.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+          <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Public Portal</a>
+        </nav>
+      </div>
+      <div class="sidebar-section">
+        <span class="sidebar-label">GENERAL</span>
+        <div class="sidebar-card">
+          <p>Quick handover flow</p>
+          <strong>Check the physical card, then mark it claimed.</strong>
+        </div>
+      </div>
+    </aside>
+
+    <main class="officer-main">
+      <header class="officer-topbar">
+        <div>
+          <p class="eyebrow">Officer Portal</p>
+          <h1>Campus ID intake dashboard</h1>
+          <p>Log new found IDs, manage storage inventory, and mark handovers confidently on the spot.</p>
+        </div>
+        <div class="nav-actions">
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+        </div>
+      </header>
+
+      <section class="metrics-row" aria-label="Dashboard metrics">
+        <article class="metric-card">
+          <div class="metric-top">
+            <span class="metric-label">Total logged today</span>
+            <span class="metric-badge">↑ Increased</span>
+          </div>
+          <strong class="metric-value" id="metricToday">0</strong>
+          <span class="metric-note">Fresh intake entries added since midnight.</span>
+        </article>
+        <article class="metric-card metric-card-featured">
+          <div class="metric-top">
+            <span class="metric-label">Active in storage</span>
+            <span class="metric-badge metric-badge-light">Pending Collection</span>
+          </div>
+          <strong class="metric-value" id="metricStorage">0</strong>
+          <span class="metric-note">Items currently awaiting handover.</span>
+        </article>
+        <article class="metric-card">
+          <div class="metric-top">
+            <span class="metric-label">Handed over</span>
+            <span class="metric-badge">Completed</span>
+          </div>
+          <strong class="metric-value" id="metricHandedOver">0</strong>
+          <span class="metric-note">Records marked collected in person.</span>
+        </article>
+      </section>
+
+      <section class="officer-grid">
+        <article class="officer-card form-card">
+          <div class="card-heading">
+            <div>
+              <h2>Add new found ID</h2>
+              <p>Capture the card details at drop-off with a polished, fast intake flow.</p>
+            </div>
+            <span class="pill pill-green"><i class="fa-solid fa-plus"></i> New intake</span>
+          </div>
+
+          <form id="inventoryForm" class="officer-form">
+            <div class="field-grid">
+              <div class="field-group">
+                <label for="regNumber">Registration number</label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-id-badge"></i>
+                  <input id="regNumber" name="regNumber" type="text" placeholder="SCT221-0047/2023" required />
+                </div>
+              </div>
+              <div class="field-group">
+                <label for="fullName">Full name</label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-user"></i>
+                  <input id="fullName" name="fullName" type="text" placeholder="Jane Doe" required />
+                </div>
+              </div>
+            </div>
+
+            <div class="field-grid">
+              <div class="field-group">
+                <label for="college">College / Faculty</label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-building-columns"></i>
+                  <select id="college" name="college" class="select-field">
+                    <option value="Faculty of Computing">Faculty of Computing</option>
+                    <option value="Faculty of Engineering">Faculty of Engineering</option>
+                    <option value="Faculty of Education">Faculty of Education</option>
+                    <option value="Faculty of Business">Faculty of Business</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field-group">
+                <label for="course">Course / Program</label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                  <input id="course" name="course" type="text" placeholder="BSc Computer Science" />
+                </div>
+              </div>
+            </div>
+
+            <div class="field-grid">
+              <div class="field-group">
+                <label for="pickupLocation">Pickup location</label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <select id="pickupLocation" name="pickupLocation" class="select-field">
+                    <option value="Main Gate Security Office">Main Gate Security Office</option>
+                    <option value="Admin Block Front Desk">Admin Block Front Desk</option>
+                    <option value="Library Desk">Library Desk</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field-group">
+                <label for="notes">Notes</label>
+                <div class="input-with-icon textarea-icon">
+                  <i class="fa-solid fa-clipboard-list"></i>
+                  <textarea id="notes" name="notes" placeholder="Optional notes"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn-primary submit-btn" type="submit"><i class="fa-solid fa-plus"></i> Log found ID</button>
+          </form>
+        </article>
+
+        <article class="officer-card stat-card">
+          <div class="stat-top">
+            <span class="pill pill-gray"><i class="fa-solid fa-boxes-stacked"></i> Storage snapshot</span>
+          </div>
+          <div class="stat-value" id="inventoryCount">0</div>
+          <p>Current card inventory that is still waiting to be claimed.</p>
+        </article>
+      </section>
+
+      <section class="officer-card inventory-card">
+        <div class="card-heading">
+          <div>
+            <h2>Inventory records</h2>
+            <p>Search, filter, and mark an item as claimed when the student arrives with their physical card.</p>
+          </div>
+        </div>
+
+        <div class="table-toolbar">
+          <div class="table-search">
+            <label for="inventorySearch" class="input-label">Search by reg no or name</label>
+            <div class="input-with-icon">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input id="inventorySearch" type="search" placeholder="Search records" autocomplete="off" />
+            </div>
+          </div>
+        </div>
+
+        <div class="table-shell">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Reg No</th>
+                <th>Name</th>
+                <th>College / Course</th>
+                <th>Pickup Location</th>
+                <th>Status</th>
+                <th>Date Logged</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="inventoryTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast">
+    <span id="toastIcon"></span>
+    <span id="toastMsg"></span>
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/officer.js"></script>
+</body>
+</html>
