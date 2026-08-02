@@ -13,12 +13,15 @@
   <link rel="stylesheet" href="../css/components.css" />
   <link rel="stylesheet" href="../css/pages.css" />
 </head>
-<body class="public-page">
-  <nav class="public-nav">
-    <a class="brand-block" href="#">
-      <span class="brand-mark">ID</span>
-      <span>IDentify</span>
-    </a>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <div class="nav-logo-icon">ID</div>
+      IDentify
+    </div>
     <div class="nav-actions">
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
         <i class="fa-solid fa-moon"></i>
@@ -26,48 +29,90 @@
     </div>
   </nav>
 
-  <main class="public-shell">
-    <section class="public-hero">
-      <div class="public-card">
-        <p class="eyebrow">Student / Public Portal</p>
-        <h1>Search by registration number and locate your ID immediately.</h1>
-        <p>Students can check whether a found student ID is currently being held at a campus location. The portal only confirms the location of the item and does not replace the officer hand-over process.</p>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-photo" id="heroBg"></div>
+    <div class="hero-overlay"></div>
 
-        <div class="search-widget">
-          <input id="mainSearchInput" type="text" placeholder="Enter registration number" autocomplete="off" />
-          <button type="button" id="searchButton"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
-        </div>
-        <p class="public-helper">Use your registration number to check whether your ID is currently held at a campus desk or security office.</p>
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Someone found it.<br/>
+        <span class="t-dim">It's waiting</span>
+        <span class="t-accent">for you.</span>
+      </h1>
+      <p class="hero-subtitle">
+        Lost your student ID at Gate A, the library, or the cafeteria?
+        Search by your registration number and find it here in seconds.
+      </p>
 
-        <div class="public-link-row">
-         <a href="officer-login.html"><i class="fa-solid fa-shield-halved"></i> Officer Portal</a>
+      <div class="search-widget">
+        <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+        <input type="text" class="search-input" id="mainSearchInput"
+          placeholder="Enter reg number e.g. SCT221-0047/2023"
+          autocomplete="off" spellcheck="false" />
+        <div class="search-divider"></div>
+        <button class="search-btn" onclick="handleSearch()">Find My ID</button>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      <span class="scroll-label">Scroll</span>
+    </div>
+
+    <div class="hero-stats-bar">
+      <div class="hero-stats-inner">
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span class="countup" data-target="2841" id="s1">0</span><span class="ac">+</span></div>
+          <div class="hero-stat-label">Documents uploaded</div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="public-panel">
-        <h2>What to expect</h2>
-        <ul class="public-list">
-          <li><i class="fa-solid fa-check"></i><span>Enter your registration number.</span></li>
-          <li><i class="fa-solid fa-check"></i><span>See whether the ID has been logged and where it is being held.</span></li>
-          <li><i class="fa-solid fa-check"></i><span>Visit the stated campus location to collect it in person.</span></li>
-        </ul>
+  <!-- FEATURES -->
+  <!-- <div class="features-strip">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-item"><i class="fa-solid fa-bolt"></i><div class="feature-label">Instant Search</div><div class="feature-desc">Live database results in milliseconds</div></div>
+        <div class="feature-item"><i class="fa-solid fa-mobile-screen"></i><div class="feature-label">Mobile First</div><div class="feature-desc">Built for your phone, any connection</div></div>
+         <div class="feature-item"><i class="fa-solid fa-folder-open"></i><div class="feature-label">All Doc Types</div><div class="feature-desc">IDs, passports, library cards and more</div></div> -->
+        <!-- <div class="feature-item"><i class="fa-solid fa-clock"></i><div class="feature-label">24/7 Available</div><div class="feature-desc">Search and upload any time, any day</div></div>
       </div>
-    </section>
+    </div>
+  </div> --> 
 
-    <section class="public-grid">
-      <article class="public-panel">
-        <h2>For students</h2>
-        <p>This portal is intentionally limited to registration-number searches. Students cannot upload documents, verify identity online, or manage inventory.</p>
-      </article>
-      <article class="public-panel">
-        <h2>For officers</h2>
-        <p>Authorized campus officers use the dedicated officer dashboard to log new IDs, track active inventory, and mark items as handed over once they are collected.</p>
-      </article>
-    </section>
-  </main>
-
-  <footer class="public-footer">
-    <p>Students use this portal for quick lookup. Officers manage the intake and hand-over workflow from the dedicated dashboard.</p>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="nav-logo" style="color:var(--text-primary)">
+            <div class="nav-logo-icon">ID</div> IDentify
+          </div>
+          <p>A student-built platform for recovering lost official documents at JKUAT and beyond.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="officer-login.html">Officer intake desk</a></li>
+            <li><a href="#home">Back to top</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">Report an issue</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 IDentify. Built at JKUAT.</p>
+        <span class="footer-badge">Student Project</span>
+      </div>
+    </div>
   </footer>
 
   <div class="modal-overlay" id="searchModal">
@@ -96,59 +141,100 @@
       themeButton.innerHTML = nextTheme === 'dark' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
     });
 
-    const records = [
-      { regNumber: 'SCT221-0047/2023', name: 'John Doe Karuri', location: 'Main Gate Security Office' },
-      { regNumber: 'ENG2023-014', name: 'Grace Akinyi', location: 'Admin Block Front Desk' },
-      { regNumber: 'EDU2109-009', name: 'Martin Otieno', location: 'Library Desk' }
-    ];
+    /* ── HERO PHOTO ── */
+    const heroBg = document.getElementById('heroBg');
+    const img = new Image();
+    img.onload = () => heroBg.classList.add('loaded');
+    img.src = '../assets/images/hero.jpg';
 
+    /* ── NAVBAR ── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    /* ── SEARCH ── */
+    document.getElementById('mainSearchInput').addEventListener('keydown', e => {
+      if (e.key === 'Enter') handleSearch();
+    });
     function handleSearch() {
-      const regNumber = document.getElementById('mainSearchInput').value.trim();
-      if (!regNumber) {
-        showToast('<i class="fa-solid fa-triangle-exclamation"></i>', 'Enter a registration number to continue.');
-        return;
-      }
-      openModal(regNumber);
+      const q = document.getElementById('mainSearchInput').value.trim();
+      if (!q) { showToast('<i class="fa-solid fa-triangle-exclamation"></i>', 'Enter your registration number first.'); return; }
+      openModal(q);
     }
 
-    function openModal(regNumber) {
-      const match = records.find(item => item.regNumber.toLowerCase() === regNumber.toLowerCase());
-      const body = document.getElementById('modalBody');
+    /* ── MODAL ── */
+    function openModal(reg) {
       const overlay = document.getElementById('searchModal');
-
-      body.innerHTML = '<p style="color: var(--text-secondary)">Checking the active inventory for this registration number…</p>';
+      const body = document.getElementById('modalBody');
+      body.innerHTML = `
+        <div style="text-align:center;padding:28px 0">
+          <div style="width:40px;height:40px;border:3px solid var(--green-400);border-top-color:transparent;border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 14px"></div>
+          <p style="color:var(--text-muted);font-size:13px">Searching for <strong style="color:var(--text-primary)">${reg}</strong></p>
+        </div>
+        <style>@keyframes spin{to{transform:rotate(360deg)}}</style>`;
       overlay.classList.add('active');
-
-      setTimeout(() => {
-        if (match) {
-          body.innerHTML = `
-            <div class="result-pill"><i class="fa-solid fa-circle-check"></i> Found in active inventory</div>
-            <p style="margin-top: 14px;"><strong>${match.name}</strong></p>
-            <p>Your student ID was found and is currently being held at <strong>${match.location}</strong>.</p>
-            <p style="margin-top: 10px; color: var(--text-secondary);">Please visit the location above with your registration number for collection.</p>
-          `;
-        } else {
-          body.innerHTML = `
-            <div class="result-pill"><i class="fa-solid fa-circle-info"></i> No match found</div>
-            <p style="margin-top: 14px;">No matching student ID is currently listed for <strong>${regNumber}</strong>.</p>
-            <p>If you believe your ID was handed in, please visit the <strong>Main Gate Security Office</strong> for assistance.</p>
-          `;
-        }
-      }, 650);
+      setTimeout(() => renderResult(reg), 1300);
     }
-
-    function closeModal() {
-      document.getElementById('searchModal').classList.remove('active');
+    function renderResult(reg) {
+      document.getElementById('modalBody').innerHTML = `
+        <div class="alert-info"><i class="fa-solid fa-circle-check"></i><span>Document found matching <strong>${reg}</strong></span></div>
+        <div class="result-card">
+          <div class="result-card-header">
+            <div class="result-avatar">JD<div class="blur-overlay"><i class="fa-solid fa-lock"></i></div></div>
+            <div class="result-info">
+              <div class="result-name">John Doe Karuri</div>
+              <div class="result-reg">${reg}</div>
+            </div>
+            <span class="result-badge">Found</span>
+          </div>
+          <div class="result-details">
+            <div><div class="result-detail-label">Type</div><div class="result-detail-value">Student ID</div></div>
+            <div><div class="result-detail-label">Found at</div><div class="result-detail-value">Main Gate</div></div>
+            <div><div class="result-detail-label">Uploaded</div><div class="result-detail-value">Today, 10:42 AM</div></div>
+            <div><div class="result-detail-label">Status</div><div class="result-detail-value" style="color:var(--green-400);font-weight:700">Available</div></div>
+          </div>
+          <div class="divider"></div>
+          <div class="verify-prompt">
+            <p>Details are hidden until identity is confirmed. Face verification required.</p>
+            <a href="officer.html?reg=${encodeURIComponent(reg)}"
+               class="btn-primary" style="width:100%;justify-content:center;border-radius:var(--r-sm);padding:12px;margin-top:4px">
+              <i class="fa-solid fa-camera"></i> Verify identity to continue
+            </a>
+          </div>
+        </div>
+        <p style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:12px">
+          Not yours? <a href="officer.html" style="color:var(--green-400)">Report a found document</a>
+        </p>`;
     }
-
-    document.getElementById('searchButton').addEventListener('click', handleSearch);
-    document.getElementById('mainSearchInput').addEventListener('keydown', (event) => {
-      if (event.key === 'Enter') handleSearch();
-    });
-    document.getElementById('searchModal').addEventListener('click', (event) => {
-      if (event.target.id === 'searchModal') closeModal();
+    function closeModal() { document.getElementById('searchModal').classList.remove('active'); }
+    document.getElementById('searchModal').addEventListener('click', e => {
+      if (e.target.id === 'searchModal') closeModal();
     });
 
+    /* ── COUNT-UP ── */
+    function animateCount(el, target, dur = 1800) {
+      const start = performance.now();
+      const tick = now => {
+        const p = Math.min((now - start) / dur, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.floor(eased * target).toLocaleString();
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = target.toLocaleString();
+      };
+      requestAnimationFrame(tick);
+    }
+    let counted = false;
+    setTimeout(() => {
+      if (!counted) {
+        counted = true;
+        animateCount(document.getElementById('s1'), 2841);
+        animateCount(document.getElementById('s2'), 1934, 2100);
+        animateCount(document.getElementById('s3'), 94, 1300);
+      }
+    }, 700);
+
+    /* ── TOAST ── */
     function showToast(icon, msg) {
       const toast = document.getElementById('toast');
       document.getElementById('toastIcon').innerHTML = icon;

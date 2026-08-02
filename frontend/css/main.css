@@ -32,6 +32,8 @@
   --radius-lg: var(--r-lg);
   --radius-xl: var(--r-xl);
   --radius-full: var(--r-full);
+  --card-bg: var(--bg-card);
+  --border-color: var(--border);
 
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
