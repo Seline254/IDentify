@@ -1,38 +1,31 @@
--- Purpose: Database schema and table creation script.
 CREATE DATABASE IF NOT EXISTS IDentifyDB;
 USE IDentifyDB;
 
-CREATE TABLE IF NOT EXISTS STUDENTS (
+CREATE TABLE IF NOT EXISTS OFFICERS (
+    id INT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(100) NOT NULL,
-    Reg_No VARCHAR(20) NOT NULL PRIMARY KEY,
-    college_id INT NOT NULL,
-    course_id INT NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    FOREIGN KEY (college_id) REFERENCES COLLEGES(college_id),
-    FOREIGN KEY (course_id) REFERENCES COURSES(course_id)
-);
-
-CREATE TABLE IF NOT EXISTS OFFICERS(
-    full_name VARCHAR(100) NOT NULL,
-    work_id VARCHAR(20) NOT NULL PRIMARY KEY,
-    phone_number VARCHAR(15) NOT NULL UNIQUE
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    gate VARCHAR(50) NOT NULL,
+    role ENUM('officer', 'superadmin') DEFAULT 'officer',
+    is_active BOOLEAN DEFAULT TRUE,
+    last_login TIMESTAMP NULL
 );
 
 CREATE TABLE IF NOT EXISTS INVENTORY_RECORDS (
-    record_id INT AUTO_INCREMENT PRIMARY KEY,
-    Reg_No VARCHAR(20) NOT NULL,
-    pickup_point VARCHAR(100) NOT NULL,
-    status ENUM('In Storage', 'Handed Over') NOT NULL,
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    reg_number VARCHAR(20) NOT NULL,
+    full_name VARCHAR(100) NOT NULL,
+    course VARCHAR(100) NOT NULL,
+    college VARCHAR(100) NOT NULL,
+    gate VARCHAR(50) NOT NULL,
+    status ENUM('in_custody', 'claimed') DEFAULT 'in_custody',
     date_logged TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (Reg_No) REFERENCES STUDENTS(Reg_No) ON DELETE CASCADE
+    claimed_at TIMESTAMP NULL,
+    logged_by INT NOT NULL,
+    FOREIGN KEY (logged_by) REFERENCES OFFICERS(id)
 );
 
-CREATE TABLE IF NOT EXISTS COLLEGES (
-    college_id INT AUTO_INCREMENT PRIMARY KEY,
-    college_name VARCHAR(100) NOT NULL UNIQUE
-);
-
-CREATE TABLE IF NOT EXISTS COURSES (
-    course_id INT AUTO_INCREMENT PRIMARY KEY,
-    course_name VARCHAR(100) NOT NULL UNIQUE
-);
+-- Seed officer (password is 'password')
+INSERT INTO OFFICERS (full_name, username, password_hash, gate, role, is_active)
+VALUES ('Test Officer', 'officer1', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uSi8CJjjO', 'Main Gate', 'officer', 1);
