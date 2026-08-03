@@ -1,4 +1,4 @@
-const BASE_URL = "/IDentify";
+const BASE_URL = "";
 
 function formatDateTime(isoString) {
   try {
