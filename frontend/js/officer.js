@@ -1,4 +1,4 @@
-const BASE_URL = "";
+
 
 function formatDateTime(isoString) {
   try {
@@ -83,7 +83,7 @@ let currentInventory = [];
 
 async function loadAndRender() {
   try {
-    const response = await fetch(BASE_URL + "/backend/api/officer/all-ids.php");
+    const response = await fetch("/backend/api/officer/all-ids.php");
     const result = await response.json();
 
     // if (response.status === 401) {
@@ -125,8 +125,7 @@ async function handleSubmit(event) {
   formData.append("course", course);
 
   try {
-    const response = await fetch(
-      BASE_URL + "/backend/api/officer/log-item.php",
+    const response = await fetch("/backend/api/officer/log-item.php",
       {
         method: "POST",
         body: formData,
@@ -157,7 +156,7 @@ async function handleHandedOver(event) {
   formData.append("item_id", id);
 
   try {
-    const response = await fetch(BASE_URL + "/backend/api/officer/claim.php", {
+    const response = await fetch("/backend/api/officer/claim.php", {
       method: "POST",
       body: formData,
     });
