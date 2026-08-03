@@ -13,7 +13,7 @@ require_once '../../config/db.php';
 
 $conn = connect_db();
 
-$result = mysqli_query($conn, "SELECT * FROM INVENTORY_RECORDS WHERE status = 'in_custody'");
+$result = mysqli_query($conn, "SELECT * FROM inventory_records WHERE status = 'in_custody'");
 
 if (!$result) {
     echo json_encode(['error' => 'Could not fetch IDs']);

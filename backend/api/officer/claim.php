@@ -22,7 +22,7 @@ $conn = connect_db();
 $item_id = mysqli_real_escape_string($conn, $item_id);
 
 $result = mysqli_query($conn,
-    "SELECT * FROM INVENTORY_RECORDS WHERE id = '$item_id' AND status = 'in_custody'"
+    "SELECT * FROM inventory_records WHERE id = '$item_id' AND status = 'in_custody'"
 );
 
 if (!$result || mysqli_num_rows($result) === 0) {
@@ -31,7 +31,7 @@ if (!$result || mysqli_num_rows($result) === 0) {
 }
 
 $update = mysqli_query($conn,
-    "UPDATE INVENTORY_RECORDS 
+    "UPDATE inventory_records 
      SET status = 'claimed', claimed_at = NOW() 
      WHERE id = '$item_id'"
 );

@@ -20,7 +20,7 @@ $conn = connect_db();
 $username = mysqli_real_escape_string($conn, $username);
 
 $result = mysqli_query($conn,
-    "SELECT * FROM OFFICERS WHERE username = '$username' AND is_active = 1"
+    "SELECT * FROM officers WHERE username = '$username' AND is_active = 1"
 );
 
 if (!$result || mysqli_num_rows($result) === 0) {
@@ -42,7 +42,7 @@ $_SESSION['officer_name'] = $officer['full_name'];
 $_SESSION['gate'] = $officer['gate'];
 
 mysqli_query($conn,
-    "UPDATE OFFICERS SET last_login = NOW() WHERE id = " . $officer['id']
+    "UPDATE officers SET last_login = NOW() WHERE id = " . $officer['id']
 );
 
 echo json_encode([

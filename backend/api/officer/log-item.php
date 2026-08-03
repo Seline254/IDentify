@@ -36,7 +36,7 @@ $gate       = mysqli_real_escape_string($conn, $gate);
 
 // Check not already in custody
 $existing = mysqli_query($conn,
-    "SELECT id FROM INVENTORY_RECORDS 
+    "SELECT id FROM inventory_records 
      WHERE reg_number = '$reg_number' AND status = 'in_custody'"
 );
 
@@ -46,7 +46,7 @@ if ($existing && mysqli_num_rows($existing) > 0) {
 }
 
 $insert = mysqli_query($conn,
-    "INSERT INTO INVENTORY_RECORDS (reg_number, full_name, course, college, gate, logged_by)
+    "INSERT INTO inventory_records (reg_number, full_name, course, college, gate, logged_by)
      VALUES ('$reg_number', '$name', '$course', '$college', '$gate', '$officer_id')"
 );
 
