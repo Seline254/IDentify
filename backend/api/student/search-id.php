@@ -13,7 +13,7 @@ $query = mysqli_real_escape_string($conn, $query);
 
 $result = mysqli_query($conn,
     "SELECT reg_number, full_name, course, college, gate, status, date_logged
-     FROM INVENTORY_RECORDS
+     FROM inventory_records
      WHERE (reg_number = '$query' OR full_name LIKE '%$query%')
      AND status = 'in_custody'"
 );
