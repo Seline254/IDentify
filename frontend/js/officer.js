@@ -99,6 +99,7 @@ async function loadAndRender() {
       showToast(result.error || "Could not load inventory.", "error");
     }
   } catch (err) {
+    console.error("Exact fetch error:", err);
     showToast("Network error loading inventory.", "error");
   }
 }
