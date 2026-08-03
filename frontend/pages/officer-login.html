@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IDentify - Officer Intake Login</title>
+  <meta name="description" content="Secure officer login for the campus intake desk." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(0, 200, 150, 0.15), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(16, 185, 129, 0.16), transparent 34%),
+        linear-gradient(135deg, #060b14 0%, #07111f 100%);
+      color: #f8fafc;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .login-card {
+      width: min(100%, 500px);
+      padding: 34px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(10, 16, 27, 0.78);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .login-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0, 200, 150, 0.12), transparent 55%);
+      pointer-events: none;
+    }
+
+    .badge {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 18px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      font-size: 1.6rem;
+      color: #00c896;
+      background: rgba(0, 200, 150, 0.12);
+      box-shadow: 0 0 0 1px rgba(0, 200, 150, 0.2), 0 0 18px rgba(0, 200, 150, 0.23);
+    }
+
+    .eyebrow {
+      text-align: center;
+      color: #00c896;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      text-align: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+      color: #f8fafc;
+    }
+
+    .subtext {
+      text-align: center;
+      color: rgba(241, 245, 249, 0.76);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    label {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+
+    .input-shell {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .input-shell:focus-within {
+      border-color: rgba(0, 200, 150, 0.45);
+      box-shadow: 0 0 0 3px rgba(0, 200, 150, 0.14);
+    }
+
+    .input-shell i {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.95rem;
+    }
+
+    input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: #f8fafc;
+      font-size: 0.97rem;
+    }
+
+    input::placeholder {
+      color: rgba(248, 250, 252, 0.45);
+    }
+
+    .notice {
+      margin: 16px 0 18px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(0, 200, 150, 0.16);
+      background: rgba(0, 200, 150, 0.1);
+      color: rgba(240, 253, 244, 0.92);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .error-alert {
+      margin-bottom: 16px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(248, 113, 113, 0.28);
+      background: rgba(127, 29, 29, 0.26);
+      color: #fecaca;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 16px;
+      border-radius: 14px;
+      font-weight: 700;
+      color: #07110d;
+      background: linear-gradient(135deg, #0acf8c, #00c896);
+      box-shadow: 0 10px 24px rgba(0, 200, 150, 0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(0, 200, 150, 0.28);
+    }
+
+    .footer-link {
+      display: block;
+      text-align: center;
+      margin-top: 14px;
+      color: rgba(248, 250, 252, 0.72);
+      font-size: 0.9rem;
+    }
+
+    .footer-link a {
+      color: #5eead4;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <main class="login-card" role="main">
+    <div class="badge" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></div>
+    <div class="eyebrow">Campus intake desk</div>
+    <h1>Officer sign-in</h1>
+    <p class="subtext">Securely authenticate with your work credentials to continue the intake workflow.</p>
+
+    <form id="officerLoginForm" novalidate>
+      <div class="field-group">
+        <label for="workId">Work ID</label>
+        <div class="input-shell">
+          <i class="fa-solid fa-id-badge"></i>
+          <input id="workId" name="workId" type="text" placeholder="JKUAT-OFF-0231" required />
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="phoneNumber">Phone Number</label>
+        <div class="input-shell">
+          <i class="fa-solid fa-phone"></i>
+          <input id="phoneNumber" name="phoneNumber" type="tel" placeholder="07XXXXXXXX" required />
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="passkey">Station Security Passkey</label>
+        <div class="input-shell">
+          <i class="fa-solid fa-key"></i>
+          <input id="passkey" name="passkey" type="password" placeholder="Enter the station passkey" required />
+        </div>
+      </div>
+
+      <div id="formError" class="error-alert" hidden role="alert"></div>
+
+      <div class="notice">
+        <strong>Security notice:</strong> Only authorized intake officers may access this dashboard. The master passkey required for sign-in is provided by the station lead.
+      </div>
+
+      <button class="btn-primary" type="submit"><i class="fa-solid fa-right-to-bracket"></i> Sign In to Intake Desk</button>
+    </form>
+
+    <div class="footer-link">
+      <a href="index.html">Return to public portal</a>
+    </div>
+  </main>
+
+  <script src="../js/officer-login.js"></script>
+</body>
+</html>

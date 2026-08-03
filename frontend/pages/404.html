@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 - IDentify</title>
+  <meta name="description" content="The requested page could not be found on the IDentify campus portal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(0, 200, 150, 0.18), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(16, 185, 129, 0.16), transparent 36%),
+        linear-gradient(135deg, #050913 0%, #08111f 100%);
+      color: #f8fafc;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.85), transparent 95%);
+      pointer-events: none;
+    }
+
+    .error-card {
+      position: relative;
+      width: min(100%, 860px);
+      padding: 48px 40px;
+      text-align: center;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(7, 14, 24, 0.76);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      overflow: hidden;
+    }
+
+    .error-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0, 200, 150, 0.12), transparent 55%);
+      pointer-events: none;
+    }
+
+    .icon-wrap {
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 24px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(0, 200, 150, 0.12);
+      box-shadow: 0 0 0 1px rgba(0, 200, 150, 0.2), 0 0 28px rgba(0, 200, 150, 0.25);
+      animation: drift 3.2s ease-in-out infinite;
+    }
+
+    .icon-wrap i {
+      color: #00c896;
+      font-size: 2.2rem;
+      text-shadow: 0 0 22px rgba(0, 200, 150, 0.45);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #00c896;
+      background: rgba(0, 200, 150, 0.12);
+      border: 1px solid rgba(0, 200, 150, 0.16);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 3.8vw, 2.8rem);
+      margin-bottom: 14px;
+      color: #f8fafc;
+    }
+
+    p {
+      max-width: 620px;
+      margin: 0 auto 28px;
+      font-size: 1rem;
+      color: rgba(248, 250, 252, 0.78);
+      line-height: 1.7;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      color: #07110d;
+      background: linear-gradient(135deg, #0acf8c, #00c896);
+      box-shadow: 0 10px 24px rgba(0, 200, 150, 0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(0, 200, 150, 0.28);
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
+    }
+  </style>
+</head>
+<body>
+  <main class="error-card" role="main">
+    <div class="icon-wrap" aria-hidden="true">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <div class="eyebrow"><i class="fa-solid fa-triangle-exclamation"></i> 404 · Lost in transit</div>
+    <h1>Lost in the digital void?</h1>
+    <p>The page you were trying to reach is missing, misrouted, or no longer available. Return to the public portal to search for a found ID or explore the campus intake flow.</p>
+    <a class="btn-primary" href="index.html"><i class="fa-solid fa-house"></i> Back to public portal</a>
+  </main>
+</body>
+</html>
