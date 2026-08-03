@@ -1219,7 +1219,7 @@
         // Hit the real backend
         try {
           const response = await fetch(
-            "/IDentify/backend/api/student/search-id.php?q=" +
+            "/backend/api/student/search-id.php?q=" +
               encodeURIComponent(reg),
           );
           const result = await response.json();
