@@ -114,6 +114,9 @@ async function handleSubmit(event) {
   const college = (data.get("college") || "").trim();
   const course = (data.get("course") || "").trim();
 
+  const pickup_location = (data.get("pickupLocation") || "").trim();
+  
+
   if (!reg_number || !name) {
     showToast("Registration number and full name are required.", "error");
     return;
@@ -124,6 +127,9 @@ async function handleSubmit(event) {
   formData.append("name", name);
   formData.append("college", college);
   formData.append("course", course);
+
+  formData.append("gate", pickup_location); // or "gate" depending on what your backend PHP expects
+  
 
   try {
     const response = await fetch("/backend/api/officer/log-item.php",
